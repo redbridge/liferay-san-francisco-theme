@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012, RedBridge Technology AB. All rights reserved.
+  -->
+
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 6.1.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_6_1_0.dtd">
+<look-and-feel>
+    <compatibility>
+        <version>6.1.1+</version>
+    </compatibility>
+    <theme id="san-francisco" name="San Francisco">
+        <template-extension>vm</template-extension>
+        <settings>
+            <setting configurable="true" key="portlet-setup-show-borders-default" type="checkbox" value="false"/>
+            <setting configurable="true" key="use-entire-browser-width" type="checkbox" value="false"/>
+            <setting configurable="true" key="show-only-copyright-footer" type="checkbox" value="false"/>
+            <setting configurable="true" key="show-breadcrumbs" type="checkbox" value="false"/>
+            <setting configurable="true" key="show-language-bar" type="checkbox" value="true"/>
+        </settings>
+        <color-scheme id="01" name="Private">
+            <css-class>private</css-class>
+        </color-scheme>
+        <color-scheme id="02" name="Regular">
+            <css-class>regular</css-class>
+        </color-scheme>
+    </theme>
+</look-and-feel>

@@ -1,0 +1,47 @@
+#set ($is_copyright_only = $themeDisplay.getThemeSetting("show-only-copyright-footer") == "true")
+#set ($is_full_width = $themeDisplay.getThemeSetting("use-entire-browser-width") == "true")
+#set ($is_show_breadcrumbs = $themeDisplay.getThemeSetting("show-breadcrumbs") == "true")
+#set ($is_show_language_bar = $themeDisplay.getThemeSetting("show-language-bar") == "true")
+
+#if ($site_logo_width > 400)
+    #set ($logo_container_width = $site_logo_width / 2)
+    #set ($logo_container_height = $site_logo_height / 2)
+#else
+    #set ($logo_container_width = $site_logo_width)
+    #set ($logo_container_height = $site_logo_height)
+#end
+
+#set($addressLocalService = $serviceLocator.findService("com.liferay.portal.service.AddressLocalService"))
+#set($phoneLocalService = $serviceLocator.findService("com.liferay.portal.service.PhoneLocalService"))
+#set($emailAddressLocalService = $serviceLocator.findService("com.liferay.portal.service.EmailAddressLocalService"))
+
+#set($addresses = $addressLocalService.getAddresses(0, -1))
+#foreach($address in $addresses)
+    #if ($address.primary && $address.companyId == $company_id)
+        #set($company_address = $address)
+        #break
+    #end
+#end
+
+#set($phones = $phoneLocalService.getPhones(0, -1))
+#foreach ($phone in $phones)
+    #if ($phone.companyId == $company_id)
+        #if ($phone.type.name == "local" && $phone.primary)
+            #set($company_phone_number = $phone)
+        #end
+        #if ($phone.type.name == "fax")
+            #set($company_fax_number = $phone)
+        #end
+        #if ($phone.type.name == "other")
+            #set($support_phone_number = $phone)
+        #end
+    #end
+#end
+
+#set($emailAddresses = $emailAddressLocalService.getEmailAddresses(0, -1))
+#foreach($emailAddress in $emailAddresses)
+    #if ($emailAddress.primary && $emailAddress.companyId == $company_id)
+        #set($company_email_address = $emailAddress)
+        #break
+    #end
+#end

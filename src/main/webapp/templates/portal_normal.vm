@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="#language("lang.dir")" dir="#language("lang.dir")" lang="$w3c_language_id">
+
+<head>
+    <title>$the_title - $company_name</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700"
+          rel="stylesheet" type="text/css">
+
+    $theme.include($top_head_include)
+</head>
+
+<body class="$css_class">
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+
+#if ($is_full_width)
+<div id="wrapper-full">
+#else
+<div id="wrapper">
+#end
+	<a href="#main-content" id="skip-to-content">#language("skip-to-content")</a>
+
+	<header id="banner" role="banner">
+        <table id="heading">
+            <tr>
+                <td class="heading-left">
+                    #if ($show_site_name)
+                    <a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">
+                        <img src="/san-francisco-theme/images/redbridge/logo-narrow.png" width="193" height="57" alt="$logo_description">
+                    </a>
+                    <span class="site-name" title="#language("go-to") $site_name">$site_name</span>
+                    #else
+                    <a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">
+                        <img src="$site_logo" width="${logo_container_width}" height="${logo_container_height}" alt="$logo_description">
+                    </a>
+                    #end
+                </td>
+                <td class="heading-right">
+                    <div id="jcsWrapper">$theme.journalContentSearch()</div>
+                    #if ($is_show_language_bar)
+                    <div style="margin-top: 5px;">
+                        #if (!$is_signed_in)
+                            <span id="sign-in">$sign_in_text</span>
+                        #else
+                            <span style="color: white;">$user_greeting</span>
+                        #end
+                        <span style="color:white;">|</span> $theme.language()
+                    </div>
+                    #end
+                </td>
+            </tr>
+        </table>
+
+        #if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+
+        #if ($is_show_breadcrumbs)
+            <nav class="site-breadcrumbs" id="breadcrumbs">
+                <h1>
+                    <span>#language("breadcrumbs")</span>
+                </h1>
+
+                #breadcrumbs()
+
+                <div class="breadcrumbs-scroller">
+                    <span class="scroll-dots"></span>
+                </div>
+            </nav>
+        #end
+    </header>
+
+	<div id="content">
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer id="footer" role="contentinfo">
+        #if (!$is_copyright_only)
+        <table>
+            <tr>
+                <td class="footer-left">
+                    <h1 style="margin-top: 0">#language("goldengate.about-company")</h1>
+                    <div style="margin-bottom: 10px;">#language("goldengate.about-text")</div>
+                    <table style="border-top: 0; width: auto;">
+                        <tr>
+                            <td style="vertical-align: top; padding-right: 10px;"><a href="http://www.avropa.se/Supplier/7063" target="_blank"><img src="/san-francisco-theme/images/redbridge/itavtal.png" height="60" border="0" alt="Kammarkollegiet"/></a></td>
+                            <td style="vertical-align: top;"><img src="/san-francisco-theme/images/redbridge/gasell2009.png" height="60" border="0" alt="Gasellföretag 2009"/></td>
+                            <td style="vertical-align: top; padding-left: 10px;"><a href="http://www.lakareutangranser.se/gava/Foretag/Foretagstack/" target="_blank"><img src="/san-francisco-theme/images/redbridge/msf.png" height="60" border="0" alt="Läkare utan gränser"/</a></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="footer-middle">
+                    <h1 style="margin-top: 0">#language("goldengate.follow-us-on")</h1>
+                    <a href="https://www.linkedin.com/company/redbridge-group-sweden" target="_blank">
+                        <img src="/san-francisco-theme/images/redbridge/in_bw.png" width="50" height="50" border="0" alt="LinkedIn"/>
+                    </a>
+                    <a href="https://www.twitter.com/redbridgegroup" target="_blank">
+                        <img src="/san-francisco-theme/images/redbridge/tw_bw.png" width="50" height="50" border="0" alt="Twitter"/>
+                    </a>
+                </td>
+                <td class="footer-right">
+                    <h1 style="margin-top: 0">#language("goldengate.addresses")</h1>
+                    <div style="font-weight: bold;">
+                        #language("goldengate.redbridge-group")
+                    </div>
+                    <div>
+                        ${company_address.street1}<br>
+                        ${company_address.country.a2}-${company_address.zip} ${company_address.city}<br>
+                        ${company_address.country.name}<br><br>
+                        <table style="border-top: 0; width: auto;">
+                            <tr>
+                                <td><span style="font-weight: bold;">Telefon:</span></td>
+                                <td><span style="font-style: italic;">${company_phone_number.number} ${company_phone_number.extension}</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;"><span style="font-weight: bold;">Kundsupport:</span></td>
+                                <td><span style="font-style: italic;">${support_phone_number.number} ${support_phone_number.extension}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span style="font-weight: bold;">Fax:</span></td>
+                                <td><span style="font-style: italic;">${company_fax_number.number} ${company_fax_number.extension}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span style="font-weight: bold;">E-post:</span></td>
+                                <td><span style="font-style: italic;">${company_email_address.address}</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        #end
+
+        <div class="copyright">
+            #if (!$is_show_language_bar)
+                <a href="/sign-in">
+            #end
+            #language("goldengate.copyright-prefix") ${the_year} #language("goldengate.copyright-postfix")
+            #if (!$is_show_language_bar)
+                </a>
+            #end
+        </div>
+    </footer>
+</div>
+
+$theme.include($body_bottom_include)
+
+</body>
+
+$theme.include($bottom_include)
+
+</html>

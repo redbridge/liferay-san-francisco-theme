@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700"
+          rel="stylesheet" type="text/css">
+
+    $theme.include($top_head_include)
+</head>
+
+<body class="portal-popup $css_class">
+
+$theme.include($content_include)
+
+$theme.include($bottom_ext_include)
+
+</body>
+
+</html>

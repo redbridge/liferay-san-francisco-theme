@@ -1,0 +1,1005 @@
+/*
+ * Copyright (c) 2012 Whistler AB. All rights reserved.
+ */
+
+@import "compass";
+@import url(color_schemes/private.css);
+@import url(color_schemes/regular.css);
+
+/* ---------- Base styles ---------- */
+
+body {
+    background: url("../images/redbridge/bg.png") #eee repeat;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #3b3b3b;
+}
+
+a {
+    color: #C60824;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+hr, .separator {
+    border-color: #BFBFBF transparent #FFF;
+    border-style: solid;
+    border-width: 1px 0;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+h5 {
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+#wrapper {
+    background: none;
+    margin: 0 auto;
+    width: 960px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px #222;
+    -moz-box-shadow: 0 1px 4px #222;
+    -webkit-box-shadow: 0 1px 4px #222;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.ie6 #wrapper, .ie7 #wrapper, .ie8 #wrapper {
+    background: none;
+    margin: 0 auto;
+    width: 960px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #222;
+}
+
+#wrapper-full {
+    background: none;
+    margin: 10px;
+    min-width: 960px;
+    position: relative;
+    box-shadow: 0 1px 4px #222;
+    -moz-box-shadow: 0 1px 4px #222;
+    -webkit-box-shadow: 0 1px 4px #222;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.ie6 #wrapper-full, .ie7 #wrapper-full, .ie8 #wrapper-full {
+    background: none;
+    margin: 10px;
+    min-width: 960px;
+    position: relative;
+    border: 1px solid #222;
+}
+
+#banner {
+    border-top-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    background: url("../images/redbridge/headerbg_alt.png") #0e0e0e no-repeat center top;
+}
+
+#heading {
+    width: 100%;
+}
+
+#heading .heading-left {
+    width: 60%;
+    padding: 18px 20px;
+    vertical-align: top;
+}
+
+#heading .heading-right {
+    width: 40%;
+    text-align: right;
+    padding: 20px;
+}
+
+#jcsWrapper .lfr-search-button {
+    display: none;
+    visibility: hidden;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#jcsWrapper .aui-field-inline {
+    width: 222px;
+}
+
+#jcsWrapper input {
+    background: white url("../images/common/search.png") no-repeat 3px;
+    padding: 0 0 0 20px;
+    width: 200px;
+    height: 22px;
+    border: 1px solid #d3d3d3;
+    margin: 0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#content {
+    background: white;
+    margin: 0;
+    padding: 10px;
+}
+
+#heading .site-name {
+    margin-left: 10px;
+    text-shadow: 1px 1px black;
+    font-size: 18px;
+    font-weight: 300;
+    position: relative;
+    color: white;
+}
+
+#sign-in {
+    background: url("../images/common/key.png") no-repeat 3px 50%;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 5px 5px 25px;
+}
+
+.ie6 #banner {
+    height: 1%;
+}
+
+.ie6 #banner h1.logo {
+    height: 1%;
+}
+
+/* ---------- Main navigation ---------- */
+
+#navigation {
+    background: url("../images/redbridge/navbg.png") #d2212e repeat-x center;
+    border-top: 1px solid #580600;
+    border-bottom: 1px solid #222;
+    clear: both;
+    height: 30px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 100;
+    font-size: 0; /* workaround for misplaced whitespace in inline-block */
+}
+
+#navigation ul {
+    display: inline-block; /* we don't want "div"-behaviour where it takes whole width */
+    border-left: 1px solid #d2212e;
+    border-right: 1px solid #580600;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ie6 #navigation ul, .ie7 #navigation ul {
+    display: inline;
+    border-left: 1px solid #d2212e;
+    border-right: 1px solid #580600;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    zoom: 1; /* IE6/IE7 needs zoom: 1 for display: inline */
+}
+
+#navigation li {
+    border-left: 1px solid #580600;
+    border-right: 1px solid #d2212e;
+}
+
+#navigation li, #navigation a {
+    height: 30px;
+    display: inline-block;
+    z-index: 200;
+}
+
+.ie6 #navigation li, .ie7 #navigation li, .ie6 #navigation a, .ie7 #navigation a {
+    display: inline;
+    zoom: 1; /* IE6/IE7 needs zoom: 1 for display: inline */
+    z-index: 200;
+}
+
+#navigation ul.child-menu {
+    border: 0;
+}
+
+#navigation ul.child-menu li {
+    border: 0;
+}
+
+#navigation li {
+    position: relative;
+    vertical-align: top;
+}
+
+#navigation a {
+    color: #FFF;
+    font-size: 12px; /* font-size */
+    font-weight: bold;
+    line-height: 30px;
+    padding: 0 15px;
+    text-decoration: none;
+}
+
+#navigation .yui3-dd-drop a {
+    cursor: move;
+}
+
+#navigation .selected a, #navigation li.hover a, #navigation a:hover, #navigation a:focus, #navigation .child-menu li a, #navigation .yui3-dd-dragging, .lfr-navigation-proxy {
+    color: #FFF;
+    outline: 0;
+    text-shadow: 1px 1px #000;
+}
+
+#navigation a:hover {
+    background: url("../images/redbridge/navbg_selected.png") #580600 repeat-x center;
+    text-shadow: 1px 1px #000;
+}
+
+#navigation li.hover .child-menu {
+    background: #1E2529;
+    display: block;
+    position: absolute;
+    width: 200px;
+    z-index: 999;
+    -moz-box-shadow: 0 0 10px #222;
+    -webkit-box-shadow: 0 0 10px #222;
+    box-shadow: 0 0 10px #222;
+}
+
+.ie6 #navigation ul.child-menu-visible, .ie6 #navigation li.hover .child-menu, .ie7 #navigation ul.child-menu-visible, .ie7 #navigation li.hover ul.child-menu {
+    left: 0;
+    top: 25px;
+}
+
+#navigation .child-menu {
+    display: none;
+}
+
+#navigation .child-menu li {
+    /*border-width: 0 0 1px;*/
+    border: 0;
+    display: block;
+    float: none;
+    margin: 0;
+    height: auto;
+}
+
+#navigation li.selected a {
+    background: url("../images/redbridge/navbg_selected.png") #580600 repeat-x center;
+}
+
+#navigation .child-menu li a {
+    padding: 5px 15px;
+    line-height: normal;
+    height: auto;
+    background: none;
+    cursor: pointer !important;
+}
+
+.ie7 #navigation .child-menu li a {
+    zoom: 1;
+}
+
+#navigation .child-menu li a:hover {
+    background: url(../images/navigation/bullet_selected.png) no-repeat 5px 50%;
+    color: #d3d3d3;
+}
+
+#navigation .child-menu .selected a {
+    background: url(../images/navigation/bullet_selected.png) no-repeat 5px 50%;
+}
+
+#navigation li.selected ul a {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* ---------- Portlet wrapper and icons ---------- */
+
+.portlet-column-content {
+    padding: 0;
+}
+
+.portlet {
+    background-color: #EEF0F2;
+    border: 1px solid #C8C9CA;
+    margin: 0 0 10px;
+    padding: 3px;
+    text-align: left;
+}
+
+.portlet-topper {
+    background: #D4D4D4 url("../images/portlet/header_bg.png") repeat-x 0 0;
+    border: 1px solid;
+    border-color: #C8C9CA #9E9E9E #9E9E9E #C8C9CA;
+    font-size: 1.1em;
+}
+
+.portlet-title {
+    float: none;
+    font-weight: bold;
+    min-width: 50%;
+    padding: 5px;
+    text-shadow: 1px 1px #FFF;
+}
+
+.lfr-portlet-title-editable {
+    margin-top: -4px;
+    z-index: 9999;
+}
+
+.ie .lfr-portlet-title-editable {
+    margin-top: -6px;
+}
+
+.lfr-portlet-title-editable-content {
+    padding: 0;
+}
+
+.ie .lfr-portlet-title-editable-content {
+    margin-top: 4px;
+}
+
+.portlet-icons {
+    float: none;
+}
+
+.portlet-icons .portlet-close-icon {
+    border-width: 0;
+}
+
+.page-maximized .portlet-icons {
+    font-size: 11px;
+}
+
+.portlet-icon-back {
+}
+
+.ie .portlet-title {
+    padding-bottom: 5px;
+}
+
+.ie6 .portlet-topper {
+    zoom: 1;
+}
+
+.portlet-column {
+    padding: 10px;
+}
+
+/* ---------- Footer ---------- */
+
+#footer {
+    color: #000;
+    background: #ddd;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+#footer table {
+    border-top: 1px solid #bbb;
+    width: 100%;
+}
+
+#footer .footer-left {
+    width: 50%;
+    border-right: 1px solid #bbb;
+    vertical-align: top;
+    padding: 10px;
+}
+
+#footer .footer-middle {
+    width: 20%;
+    border-right: 1px solid #bbb;
+    vertical-align: top;
+    padding: 10px;
+}
+
+#footer .footer-right {
+    width: 30%;
+    vertical-align: top;
+    padding: 10px;
+}
+
+#footer .copyright {
+    background-color: transparent;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 11px;
+    border-top: 1px solid #bbb;
+}
+
+#footer .copyright a {
+    background-color: transparent;
+    color: black;
+}
+
+#footer .copyright a:hover {
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+}
+
+/* ---------- Hudcrumbs ---------- */
+
+.lfr-hudcrumbs {
+    position: fixed;
+    top: 0;
+    z-index: 440;
+}
+
+.lfr-hudcrumbs ul {
+    background: #414445;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.lfr-hudcrumbs .breadcrumbs li a, .lfr-hudcrumbs .breadcrumbs li span {
+    color: #FFF;
+}
+
+.lfr-hudcrumbs li span {
+    background-image: url("../images/common/breadcrumbs_hud.png");
+}
+
+/* ---------- Misc. ---------- */
+
+.lfr-panel-container {
+    background-color: transparent;
+}
+
+.aui-combobox .aui-field-input {
+    padding: 4px 3px 3px;
+    font-size: 11px;
+    height: 15px;
+}
+
+.aui-combobox .aui-field {
+    float: left;
+    line-height: 0;
+}
+
+.lfr-portlet-title-editable-content .aui-field {
+    float: none;
+    display: inline;
+}
+
+/* ---------- Extras ---------- */
+
+.portlet-borderless-bar {
+    -moz-border-radius: 20px;
+    -moz-box-shadow: inset 0 1px 3px #000;
+    -webkit-border-radius: 20px;
+    -webkit-box-shadow: inset 0 1px 3px #000;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 3px #000;
+}
+
+.portlet-topper {
+    -moz-box-shadow: 1px 1px 0 #FFF;
+    -webkit-box-shadow: 1px 1px 0 #FFF;
+    box-shadow: 1px 1px 0 #FFF;
+}
+
+.aui-combobox .aui-toolbar-first {
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* ---------- Hidden Accessible ---------- */
+
+#skip-to-content, #banner h2, #banner h3, #navigation h1, .site-breadcrumbs h1 {
+    clip: rect(0 0 0 0);
+    position: absolute;
+}
+
+.opens-new-window-accessible {
+    background: url("../images/common/open_window.png") no-repeat 0 50%;
+    display: inline-block;
+    font-size: 0;
+    height: 11px;
+    margin-left: 2px;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: top;
+    width: 11px;
+}
+
+/* ---------- Extras ---------- */
+
+.lfr-title-scope-selector {
+    -moz-border-radius-bottomleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.lfr-title-scope-selector {
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.logo .current-site, .portlet, .portlet-topper, .aui-form-validator-message {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* ---------- Navigation Portlet ---------- */
+
+.nav-menu {
+    background: #fbfbfb;
+    background: -moz-linear-gradient(top, #ffffff 0, #f6f6f6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(100%, #f6f6f6));
+    background: -webkit-linear-gradient(top, #ffffff 0, #f6f6f6 100%);
+    background: -o-linear-gradient(top, #ffffff 0, #f6f6f6 100%);
+    background: -ms-linear-gradient(top, #ffffff 0, #f6f6f6 100%);
+    background: linear-gradient(top, #ffffff 0, #f6f6f6 100%);
+    box-shadow: 0 1px 4px #222;
+    -moz-box-shadow: 0 1px 4px #222;
+    -webkit-box-shadow: 0 1px 4px #222;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    width: 100%;
+}
+
+.ie6 .nav-menu, .ie7 .nav-menu, .ie8 .nav-menu {
+    background: #fbfbfb;
+    width: 100%;
+    border: 1px solid #222;
+}
+
+.nav-menu h2 {
+    margin: 0;
+    display: block;
+}
+
+.nav-menu h2 a {
+    color: #222;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 16px;
+    display: block;
+}
+
+.nav-menu h2 a:hover {
+    color: #C60824;
+    text-decoration: none;
+}
+
+.nav-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu ul li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    border-top: 1px solid #bbb;
+}
+
+.nav-menu ul li a {
+    color: #222;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    display: block;
+}
+
+.nav-menu ul li a.selected {
+    color: #C60824;
+}
+
+.nav-menu ul li a:hover {
+    color: #C60824;
+    text-decoration: none;
+}
+
+/* ---------- Breadcrumbs ---------- */
+
+.breadcrumbs {
+    display: none;
+}
+
+.breadcrumbs-horizontal {
+    margin-bottom: 1.5em;
+}
+
+.breadcrumbs-horizontal li {
+    background: url("../images/arrows/05_right.png") no-repeat 100% 50%;
+    margin-right: 5px;
+    max-width: 50%;
+    padding-right: 15px;
+}
+
+.breadcrumbs-vertical li {
+    background: url("../images/arrows/07_down.png") no-repeat 50% 100%;
+    padding: 0 0 9px;
+    max-width: auto;
+}
+
+.breadcrumbs a {
+    display: block;
+}
+
+.breadcrumbs-vertical a {
+    text-align: center;
+    text-decoration: none;
+}
+
+.breadcrumbs .last {
+    background-image: none;
+}
+
+.breadcrumbs-horizontal .last {
+    margin-top: 0.2em;
+}
+
+.breadcrumbs-vertical .last {
+    font-weight: bold;
+}
+
+.breadcrumbs-horizontal .last a, .aui-tree-node-selected a {
+    color: #555;
+}
+
+/* ---------- Site breadcrumbs ---------- */
+
+.site-breadcrumbs {
+    margin: 0;
+    width: auto;
+}
+
+.site-breadcrumbs ul {
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.site-breadcrumbs li {
+    background-image: none;
+    margin-right: 0;
+    padding-left: 0.75em;
+    padding-right: 0;
+}
+
+.site-breadcrumbs li span {
+    background: url("../images/common/breadcrumbs.png") no-repeat 100% 50%;
+    display: block;
+    padding: 0.5em 15px 0.5em 0;
+}
+
+.site-breadcrumbs li span a {
+    color: #444;
+}
+
+.site-breadcrumbs li.first a {
+    color: #444;
+}
+
+.site-breadcrumbs li.last a {
+    color: black;
+    font-weight: bold;
+}
+
+.site-breadcrumbs .last {
+    margin-top: 0;
+    padding-right: 0;
+}
+
+.site-breadcrumbs .last span {
+    background-image: none;
+    padding: 0;
+}
+
+.site-breadcrumbs .breadcrumbs-scroller {
+    background: url("../images/redbridge/breadcrumb_scroll_bg.png") repeat-x;
+}
+
+.site-breadcrumbs .breadcrumbs-scroller .scroll-dots {
+    display: block;
+    background: url("../images/redbridge/breadcrumb_scroll_dots.png") no-repeat;
+    width: 26px;
+    height: 6px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* -------------- Gray box --------------- */
+
+.grayBox100 {
+    background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(99%, #f6f6f6));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: -o-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    width: 100%;
+    box-shadow: 0 1px 4px #222;
+    -moz-box-shadow: 0 1px 4px #222;
+    -webkit-box-shadow: 0 1px 4px #222;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.ie6 .grayBox100,
+.ie7 .grayBox100,
+.ie8 .grayBox100 {
+    width: 100%;
+    background: #fafafa;
+    border: 1px solid #222;
+}
+
+.grayBox {
+    background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(99%, #f6f6f6));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: -o-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    background: linear-gradient(top, #ffffff 0%, #f6f6f6 99%);
+    box-shadow: 0 1px 4px #222;
+    -moz-box-shadow: 0 1px 4px #222;
+    -webkit-box-shadow: 0 1px 4px #222;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.ie6 .grayBox,
+.ie7 .grayBox,
+.ie8 .grayBox {
+    background: #fafafa;
+    border: 1px solid #222;
+}
+
+#linked-in-image {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../images/redbridge/in_bw.png');
+    background-size: 100%;
+}
+
+#twitter-image {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: url('../images/redbridge/tw_bw.png');
+    background-size: 100%;
+}
+
+/*
+  Protect bloggers from themselves
+*/
+
+.portlet-blogs .entry-body img {
+    max-width: 95%;
+    height: auto !important;
+}
+
+.portlet-blogs .entry-body pre, .portlet-blogs .entry-body code {
+    margin: 5px;
+    padding: 10px;
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+}
+
+/*
+  MOBILE DEVICES
+*/
+
+.aui-view-lt960 #navigation li.hover .child-menu {
+    display: none;
+}
+
+.aui-view-lt960 #footer {
+    background: #ddd;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.aui-view-lt960 #wrapper {
+    background: none;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0;
+    -moz-box-shadow: 0;
+    -webkit-box-shadow: 0;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.aui-view-lt960 #banner {
+    border-top-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-right-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    background: url("../images/redbridge/headerbg_alt.png") #0e0e0e no-repeat center top;
+}
+
+/* Mobiles */
+.aui-view-lt720 #heading .heading-left a img {
+    width: 100%;
+    height: auto;
+}
+
+.aui-view-lt720 #heading .heading-left {
+    width: 100%;
+}
+
+.aui-view-lt720 #head .heading-right {
+    display: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    background: #1E2529;
+    display: block !important;
+    position: relative;
+    z-index: 999;
+}
+
+.aui-view-lt720 #navigation {
+    background: #d2212e;
+    border-top: 1px solid #580600;
+    border-bottom: 1px solid #222;
+    height: auto;
+}
+
+.aui-view-lt720 #navigation ul {
+    list-style: none;
+    border: 0 !important;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.aui-view-lt720 #navigation li {
+    border: 0 !important;
+    position: relative;
+    vertical-align: top;
+}
+
+.aui-view-lt720 #navigation li, #navigation a {
+    height: auto;
+    display: block;
+    z-index: 200;
+}
+
+.aui-view-lt720 #navigation ul.child-menu {
+    border: 0;
+}
+
+.aui-view-lt720 #navigation ul.child-menu li {
+    border: 0;
+}
+
+.aui-view-lt720 #navigation a {
+    color: #FFF;
+    font-size: 13px; /* font-size */
+    font-weight: bold;
+    padding: 0 15px 1px 1px;
+    text-decoration: none;
+}
+
+.aui-view-lt720 #navigation .selected a, #navigation .child-menu li a {
+    color: #FFF;
+    outline: 0;
+    text-shadow: 1px 1px #000;
+}
+
+.aui-view-lt720 #navigation .child-menu li {
+    /*border-width: 0 0 1px;*/
+    border: 0;
+    display: block;
+    float: none;
+    margin: 0;
+    height: auto;
+}
+
+.aui-view-lt720 #navigation li.selected a {
+    background: #580600;
+    height: auto;
+}
+
+.aui-view-lt720 #navigation .child-menu li a {
+    padding: 5px 15px;
+    font-size: 13px;
+    line-height: normal;
+    height: auto;
+    background: none;
+    cursor: pointer !important;
+}
+
+.aui-view-lt720 #navigation .child-menu .selected a {
+    background: url(../images/navigation/bullet_selected.png) no-repeat 5px 50%;
+}
+
+.aui-view-lt720 #navigation li.selected ul a {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.aui-view-lt720 #navigation .child-menu {
+    display: block;
+    height: auto;
+}
+
+.aui-view-lt720 #breadcrumbs-trigger-container {
+    display: none !important;
+}
+
+.aui-view-lt720 #breadcrumbs-trigger {
+    display: none !important;
+}
+
+.aui-view-lt720 #jcsWrapper {
+    display: none;
+}
+
+.aui-view-lt720 #footer .footer-right {
+    display: none;
+}
+
+.aui-view-lt720 .nav-menu {
+    display: none;
+}
